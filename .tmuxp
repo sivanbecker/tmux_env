@@ -1,0 +1,10 @@
+#!/Users/sbecker/envs/cob_tasks1/.env/bin/python3
+# EASY-INSTALL-ENTRY-SCRIPT: 'tmuxp==1.2.6','console_scripts','tmuxp'
+__requires__ = 'tmuxp==1.2.6'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('tmuxp==1.2.6', 'console_scripts', 'tmuxp')()
+    )
