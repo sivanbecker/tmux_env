@@ -1,4 +1,4 @@
-#!/Users/sbecker/envs/cob_tasks1/.env/bin/python3
+#!/usr/local/bin/python3
 # EASY-INSTALL-ENTRY-SCRIPT: 'tmuxp==1.2.6','console_scripts','tmuxp'
 __requires__ = 'tmuxp==1.2.6'
 import sys
