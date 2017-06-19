@@ -16,6 +16,9 @@ def _cob_dev_export():
 def _get_flask_env_command(dir):
     return 'cd {} && source ../.env/bin/activate && unset __PYVENV_LAUNCHER__ && export FLASK_DEBUG=1 && export FLASK_APP=app1.py'.format(dir)
 
+def _get_meeseeks_env_command(dir):
+    return 'cd {} && source ../.env/bin/activate && unset __PYVENV_LAUNCHER__ && export FLASK_DEBUG=1 && export FLASK_APP=meeseeks.py && export APP_SETTINGS="config.DevelopmentConfig" && export DATABASE_URL="postgresql://localhost/meeseeks"'.format(dir)
+
 def _get_cob_env_command(dir):
     return 'cd {} && source ../.env/bin/activate && {}'.format(dir, _cob_dev_export())
 
@@ -47,6 +50,8 @@ def  _windows(names=[], pane_cmds=[], work_dir=None, layout='even-horizontal', t
                 w['windows'].append({'window_name': name, 'layout':layout, 'panes':[_get_pane_command([_get_infradev_env_command(work_dir),pane_cmds[index]])]})
             elif tool=='flask':
                 w['windows'].append({'window_name': name, 'layout':layout, 'panes':[_get_pane_command([_get_flask_env_command(work_dir),pane_cmds[index]])]})
+            elif tool=='meeseeks':
+                w['windows'].append({'window_name': name, 'layout':layout, 'panes':[_get_pane_command([_get_meeseeks_env_command(work_dir),pane_cmds[index]])]})
             else:
                 w['windows'].append({'window_name': name, 'layout':layout, 'panes':[_get_pane_command([_get_env_command(work_dir),pane_cmds[index]])]})
 
@@ -100,7 +105,7 @@ tdict['flask'] = _windows(names=['trm1','trm2','trm3'],
 
 tdict['meeseeks'] = _windows(names=['trm1','trm2','trm3'],
                           pane_cmds=['','',''],
-                          work_dir='/Users/sbecker/envs/flask/meeseeks',
+                          work_dir='/Users/sbecker/envs/flask/meeseeks/meeseeks',
                           tool='meeseeks')
 
 itzik = []
